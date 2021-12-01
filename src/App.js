@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useRef, useState, useEffect } from "react";
@@ -6,21 +5,15 @@ import {
   Container,
   Card,
   Row,
-  Col,
   Button,
   Form,
-  Nav,
   Navbar,
-  NavDropdown,
   Alert,
 } from "react-bootstrap";
 
 function App() {
   const gasRef = useRef();
-  const nearRef = useRef();
-  const usdRef = useRef();
 
-  const [gas, changeGas] = useState("");
   const [near, changeNEAR] = useState(0.0);
   const [usd, changeUSD] = useState(0.0);
 
@@ -46,7 +39,6 @@ function App() {
 
   const gasToNearToUSD = async () => {
     const gasVal = gasRef.current.value;
-    changeGas(gasVal);
     console.log("changing NEAR");
     let gasToNEAR = (0.0001 /* NEAR */ / 1) /*TGas */ * gasVal;
     await changeNEAR(gasToNEAR);
